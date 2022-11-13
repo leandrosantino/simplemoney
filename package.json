@@ -2,23 +2,19 @@
   "name": "simplemoney",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.3",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.8",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.8.4",
-    "web-vitals": "^2.1.4"
+  "main": "build/main.js",
+  "homepage": "./",
+  "author": {
+    "name": "Leandro",
+    "email": "leandrosantino2013@gmail.com"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "react": "react-scripts start",
+    "react:build": "react-scripts build",
+    "electron:tsBuild": "tsc -p ./electron.tsconfig.json",
+    "electron:tsWath": "tsc -w -p ./electron.tsconfig.json",
+    "start": "npm run electron:tsBuild && cls && electron . && cls",
+    "dist": "npm run react:build && npm run electron:tsBuild && electron-builder -w -c.extraMetadata.main=build/main.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -26,7 +22,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "jsx-a11y/anchor-is-valid": "off"
+    }
   },
   "browserslist": {
     "production": [
@@ -39,5 +38,46 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.3",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "electron-is-dev": "^2.0.0",
+    "re-resizable": "^6.9.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0",
+    "react-resizable": "^3.0.4",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/react-resizable": "^3.0.3",
+    "autoprefixer": "^10.4.13",
+    "electron": "^21.2.3",
+    "electron-builder": "^23.6.0",
+    "postcss": "^8.4.18",
+    "tailwindcss": "^3.2.3",
+    "typescript": "^4.8.4"
+  },
+  "description": "tes tes",
+  "build": {
+    "appId": "com.teste.electron",
+    "productName": "SimpleMoney",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
+    "win": {
+      "icon": "./src/icon.png"
+    }
   }
 }

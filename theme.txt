@@ -1,0 +1,44 @@
+omni:
+  base:
+    - &BG                   '#191622'
+    - &FG                   '#E1E1E6'
+    - &SELECTION            '#41414D'
+    - &COMMENT              '#5A4B81'
+    - &CYAN                 '#988bc7'
+    - &GREEN                '#67e480'
+    - &ORANGE               '#E89E64'
+    - &PINK                 '#FF79C6'
+    - &PURPLE               '#78D1E1'
+    - &RED                  '#E96379'
+    - &YELLOW               '#e7de79'
+  ansi: 
+    - &COLOR0               '#201B2D'
+    - &COLOR1               '#FF79C6'
+    - &COLOR3               '#e7de79'
+    - &COLOR2               '#67e480'
+    - &COLOR4               '#78D1E1'
+    - &COLOR5               '#988bc7'
+    - &COLOR6               '#A1EFE4'
+    - &COLOR7               '#E1E1E6'
+    - &COLOR8               '#626483'
+    - &COLOR9               '#ed4556'
+    - &COLOR11              '#e7de79'
+    - &COLOR10              '#00F769'
+    - &COLOR12              '#78D1E1'
+    - &COLOR13              '#988bc7'
+    - &COLOR14              '#A4FFFF'
+    - &COLOR15              '#F7F7FB'
+  brightOther:
+    # Temporary (awaiting fix)
+    - &TEMP_QUOTES          '#e7de79'
+    - &TEMP_PROPERTY_QUOTES '#7159C1'
+  other:
+    - &LineHighlight        '#44475A75'
+    - &NonText              '#FFFFFF1A'
+    - &WHITE                '#E1E1E6'
+    - &TAB_DROP_BG          '#44475A70'
+    # UI Variants
+    - &BGLighter            '#252131'
+    - &BGLight              '#201B2D' # HSV (230   , 25.71, 27.45)
+    - &BGDark               '#13111B' # HSV (234.55, 25   , 17.25)
+    - &BGDarker             '#15121E' # HSV (234.55, 25   , 13   )
