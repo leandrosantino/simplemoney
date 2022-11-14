@@ -19,12 +19,13 @@ export function BtNewSideMenu({onclick, reduced}:BtNewSideMenuProps) {
               'w-9':
               'w-28 ml-[25px]'
             }
+            transition-all
             h-9
             bg-purple-100
             rounded-[22px]
             text-white-500
-            flex
-            fle-row
+            font-bold
+            flex fle-row
             items-center  
             justify-center
             hover:opacity-90

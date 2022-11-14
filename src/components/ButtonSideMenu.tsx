@@ -27,6 +27,7 @@ export function ButtonSideMenu(
             fle-row
             items-center
             justify-center
+            transition-all
 
         `}
     >   

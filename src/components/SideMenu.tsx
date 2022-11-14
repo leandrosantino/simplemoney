@@ -20,6 +20,7 @@ export function SideMenu({reduced} : SideMenuProps) {
   return (
     <div
       className={`
+        transition-all
         h-[100%] bg-purple-900
         ${
           reduced?
@@ -29,11 +30,11 @@ export function SideMenu({reduced} : SideMenuProps) {
       `} 
     >
 
-      {!reduced && 
-        <div className='text-white-500 w-[100%] h-16 text-2xl flex justify-center items-center'>
-          Simple Money
-        </div>
-      }
+      
+      <div className='text-white-500 w-[100%] h-16 text-2xl flex justify-center items-center'>
+        {reduced?"SP":"Simple Money"}
+      </div>
+      
 
       <div className='mt-3'>
         <BtNewSideMenu
@@ -47,8 +48,8 @@ export function SideMenu({reduced} : SideMenuProps) {
           reduced={reduced}
           Icon={VscHome} 
           activated={currentPage === "Home"} 
-          title="Home" 
-          onclick={()=>goToPage<HomeProps>('Home', {nome:'Leandro'})}
+          title="Dashboard" 
+          onclick={()=>goToPage<HomeProps>('Dashboard', {nome:'Leandro'})}
         />
         <ButtonSideMenu 
           reduced={reduced}
