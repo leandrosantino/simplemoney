@@ -18,7 +18,7 @@ export function ButtonSideMenu(
         onClick={onclick} 
         className={`
             w-[100%] h-10  
-            hover:bg-purple-800 
+            hover:bg-purple-800
             ${activated?
                 `border-l-solid border-l-4 text-purple-100 border-l-purple-100`:
                 'text-white-500'

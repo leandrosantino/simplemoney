@@ -1,5 +1,3 @@
-import React from 'react'
-import {Resizable} from 're-resizable'
 import { usePages } from '../contexts/PagesContext'
 
 import {VscHome, VscArrowRight} from "react-icons/vsc";
@@ -7,7 +5,6 @@ import {VscHome, VscArrowRight} from "react-icons/vsc";
 import { HomeProps } from '../pages/Home'
 import { ButtonSideMenu } from './ButtonSideMenu'
 import { BtNewSideMenu } from './BtNewSideMenu';
-import { BtNewOptions } from './BtNewOptions';
 
 interface SideMenuProps {
   reduced: boolean
@@ -47,7 +44,7 @@ export function SideMenu({reduced} : SideMenuProps) {
         <ButtonSideMenu 
           reduced={reduced}
           Icon={VscHome} 
-          activated={currentPage === "Home"} 
+          activated={currentPage === "Dashboard"} 
           title="Dashboard" 
           onclick={()=>goToPage<HomeProps>('Dashboard', {nome:'Leandro'})}
         />

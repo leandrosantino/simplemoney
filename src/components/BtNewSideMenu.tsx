@@ -1,7 +1,6 @@
 import React from 'react'
 
 import {FiPlus} from 'react-icons/fi'
-import { BtNewOptions } from './BtNewOptions';
 
 interface BtNewSideMenuProps {
   onclick: React.MouseEventHandler;
