@@ -6,9 +6,11 @@ module.exports = {
   theme: {
     extend: {
       height: {
-      'navBar': '30px',
-      'page': 'calc(100% - 30px)'
+        'navBar': '30px',
+        'page': 'calc(100% - 30px)'
       },
+
+      top: {'navBar': '30px'},
 
       colors: {
 

@@ -5,7 +5,8 @@ interface BalanceCardsProps {
   Icon: IconType,
   title: string;
   value: string;
-  color: 'blue' | 'red' | 'green' | 'cyan' 
+  color: 'blue' | 'red' | 'green' | 'cyan' ,
+  clickable?: boolean;
 }
 
 const colors = {
@@ -15,19 +16,23 @@ const colors = {
   cyan: 'bg-cyan-600 ',
 }
 
-export function BalanceCards({Icon, title, value, color}:BalanceCardsProps){
+export function BalanceCards({Icon, title, value, color, clickable}:BalanceCardsProps){
   return (
     <div 
-      className='
+      className={`
         h-20 p-4
         text-white-500
         bg-purple-400 
         rounded-2xl
         flex flex-row
         items-center
-        justify-between      
-      ' 
-      
+        justify-between
+        shadow-md 
+        ${clickable?
+          'cursor-pointer':
+          ''
+        }
+      `} 
     >
 
       <div className='flex flex-col justify-center items-start'>

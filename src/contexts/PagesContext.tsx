@@ -1,7 +1,7 @@
 import { createContext , ReactNode, useState, useEffect, ReactComponentElement, JSXElementConstructor, useContext} from "react";
 
 
-type Pages = 'Dashboard' | 'Send'
+type Pages = 'Dashboard' | 'Send' | 'Expenses'
 
 type GoToPageType = <T>(name:Pages, props:T)=>void
 

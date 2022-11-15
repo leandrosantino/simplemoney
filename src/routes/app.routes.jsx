@@ -2,6 +2,7 @@ import {PagesContainer, Screen} from '../contexts/PagesContext';
 
 import { Home } from '../pages/Home';
 import { Send } from '../pages/Send';
+import { Expenses } from '../pages/Expenses'
 
 export default function AppRoutes() {
   return (
@@ -9,6 +10,10 @@ export default function AppRoutes() {
         <Screen 
             name='Dashboard'
             component={Home}
+        />
+        <Screen
+          name='Expenses'
+          component={Expenses}
         />
         <Screen 
             name='Send'
