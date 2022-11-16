@@ -9,10 +9,10 @@ export function BalanceFrame() {
     <div className='w-full' >
           <h4 className='text-3xl font-bold text-white-500 w-full text-start'>Dashboard</h4>
           <div className='w-full mt-4 grid gap-3 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4'>
-            <BalanceCards color='blue' title="Saldo atual"       Icon={RiBankLine} value="0,00" />
-            <BalanceCards color='green' title="Receitas"         Icon={VscArrowUp} value="0,00" />
-            <BalanceCards color='red' title="Despesas"           Icon={VscArrowDown} value="0,00" />
-            <BalanceCards color='cyan' title="Cartão de crédito" Icon={BsFillCreditCardFill} value="0,00" />
+            <BalanceCards clickable color='blue' title="Saldo atual"       Icon={RiBankLine} value="0,00" />
+            <BalanceCards clickable color='green' title="Receitas"         Icon={VscArrowUp} value="0,00" />
+            <BalanceCards clickable color='red' title="Despesas"           Icon={VscArrowDown} value="0,00" />
+            <BalanceCards clickable color='cyan' title="Cartão de crédito" Icon={BsFillCreditCardFill} value="0,00" />
             <div className='w-full h-7 mt-3' >
               <button 
                 className='

@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
 
 import {FiPlus} from 'react-icons/fi'
-import { BtNewOptions } from './BtNewOptions';
+import { TransactionOptions } from './TransactionOptions';
 
 interface BtNewSideMenuProps {
   onclick: React.MouseEventHandler;
   reduced: boolean;
 }
 
-export function BtNewSideMenu({onclick, reduced}:BtNewSideMenuProps) {
+export function NewTransactionButton({onclick, reduced}:BtNewSideMenuProps) {
 
   const [showOptions, setShowOptions] = useState(false)
 
   return (
-    <div className={`flex flex-row justify-${reduced?'center':'start'} items-center ml`} >
+    <div className={`flex flex-row justify-${reduced?'center':'start'} items-center mt-6`} >
       <button 
         className={`
             ${
@@ -35,33 +35,13 @@ export function BtNewSideMenu({onclick, reduced}:BtNewSideMenuProps) {
         `}
         onClick={()=>{setShowOptions(true)}}
     >   
-        <div className='w-[100%] flex flex-row justify-center items-center'>
+      <div className='w-[100%] flex flex-row justify-center items-center'>
             <FiPlus size={20} />
             {!reduced && <div className='ml-1' >Novo</div>}
         </div>
       </button>
 
-      {showOptions && <>
-
-        <div 
-          className={`
-            absolute h-36 w-52 mt-[104px] ${reduced? 'ml-[172px]': 'ml-[23px]'} z-10
-          `}
-        >
-          <BtNewOptions closeFunc={()=>setShowOptions(false)} />
-        </div>
-
-        <div 
-          className='absolute top-[30px] bottom-0 left-0 righ-0 w-screen h-page z-0' 
-          onClick={()=>{setShowOptions(false)}}
-        >
-
-        </div>
-
-      </>}
-
-
-
+      {showOptions && <TransactionOptions reduced={reduced} closeFunc={()=>setShowOptions(false)} />}
 
     </div>
   )

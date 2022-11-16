@@ -10,7 +10,7 @@ interface ButtonSideMenuProps {
     activeColor?: string
 }
 
-export function ButtonSideMenu(
+export function SideMenuButton(
     {title, onclick, activated, Icon, reduced, activeColor}:ButtonSideMenuProps
 ){
   return (

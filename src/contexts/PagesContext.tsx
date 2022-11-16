@@ -1,7 +1,7 @@
 import { createContext , ReactNode, useState, useEffect, ReactComponentElement, JSXElementConstructor, useContext} from "react";
 
 
-type Pages = 'Dashboard' | 'Send' | 'Expenses'
+type Pages = 'Dashboard' | 'Send'
 
 type GoToPageType = <T>(name:Pages, props:T)=>void
 
@@ -79,8 +79,3 @@ export function PagesContainer({children, className} : PagesProviderProps) {
 		</div>
 	)
 }
-
-export function usePages() : PageContextDataProps{
-	const context = useContext(PagesContext);
-	return context;
-  }

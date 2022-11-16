@@ -11,10 +11,6 @@ export default function AppRoutes() {
             name='Dashboard'
             component={Home}
         />
-        <Screen
-          name='Expenses'
-          component={Expenses}
-        />
         <Screen 
             name='Send'
             component={Send}

@@ -7,7 +7,7 @@ import {
     VscMenu
 } from "react-icons/vsc";
 
-import {usePages} from '../contexts/PagesContext'
+import {usePages} from '../hooks/usePages'
 
 export interface NavBarProps {
   handleMenuClick:Function
@@ -42,7 +42,7 @@ export function NavBar({handleMenuClick} : NavBarProps){
       </div>
 
       <header className='w-1/3 flex text-[10pt] justify-center items-center py-1 text-white-500'>
-        {currentPage} - Simple Money
+        {currentPage?currentPage + ' - ':''} Simple Money
       </header>
 
       <div className='h-[100%] w-1/3 flex flex-row justify-end'>

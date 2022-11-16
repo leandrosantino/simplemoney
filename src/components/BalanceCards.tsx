@@ -16,7 +16,7 @@ const colors = {
   cyan: 'bg-cyan-600 ',
 }
 
-export function BalanceCards({Icon, title, value, color, clickable}:BalanceCardsProps){
+export function BalanceCards({Icon, title, value, color, clickable = false}:BalanceCardsProps){
   return (
     <div 
       className={`
@@ -29,7 +29,7 @@ export function BalanceCards({Icon, title, value, color, clickable}:BalanceCards
         justify-between
         shadow-md 
         ${clickable?
-          'cursor-pointer':
+          'cursor-pointer active:opacity-95':
           ''
         }
       `} 
