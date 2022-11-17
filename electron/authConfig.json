@@ -1,0 +1,10 @@
+{
+    "client_id": "3389404517-8onudlt9gl7i8gden6mh8nidcr9hcrm5.apps.googleusercontent.com",
+    "clientSecret": "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",
+    "authorize_url": "https://accounts.google.com/o/oauth2/auth",
+    "tokenUrl": "https://oauth2.googleapis.com/token",
+    "redirect_uri": "http://localhost:9999",
+    "response_type": "token",
+    "scope": "https://www.googleapis.com/auth/userinfo.profile"
+
+}

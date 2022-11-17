@@ -2,7 +2,8 @@ export type MainRoutes =
     'maximize' |
     'minimize' |
     'close' |
-    'isMaximized'  
+    'isMaximized' |
+    'auth'
 
 export type RenderRoutes = 
     'update' |

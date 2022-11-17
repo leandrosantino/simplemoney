@@ -1,4 +1,4 @@
-import { createContext , ReactNode, useState, useEffect} from "react";
+import { createContext , ReactNode, useState} from "react";
 
 interface UserPorps {
     name: string;
@@ -21,12 +21,13 @@ export const AuthContext = createContext({} as AuthContextDataProps);
 export function AuthContextProvider({ children }: AuthProviderProps){
 
     const [isUserLoading, setIsUserLoading] = useState(false)
-    const [user, setUser] = useState<UserPorps>({avatarUrl:'lll', name: 'Leandro'} as UserPorps)
+    const [user, setUser] = useState<UserPorps>({} as UserPorps)
 
 
     async function signIn(){
         console.log('teste')
         setUser({avatarUrl:'lll', name: 'Leandro'})
+        console.log(window.ipc.sendSync('auth'))
     }
 
     async function signOut(){
