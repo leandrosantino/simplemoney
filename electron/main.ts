@@ -6,8 +6,7 @@ import { windowCreator } from './modules/windowCreator'
 import { useRoutes } from "./modules/useRoutes";
 
 import { navBarRoutes } from "./routes/navbar";
-
-import { authProvider } from "./modules/oauth2";
+import { authRoutes } from "./routes/auth";
 
 async function main(){
 
@@ -24,14 +23,8 @@ async function main(){
     const routes = useRoutes({window, ipcMain})
 
     routes.use(navBarRoutes)    
-
-    ipcMain.on('auth', async (event, args)=>{
-        try {
-            event.returnValue = await authProvider()
-        } catch (error) {
-            event.returnValue = 'falha'
-        }
-    })
+    routes.use(authRoutes)
+    
 
 }
 

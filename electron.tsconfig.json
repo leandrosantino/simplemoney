@@ -1,18 +1,19 @@
 {
-    "compilerOptions": {
-      "module": "commonjs",
-      "noImplicitAny": true,
-      "sourceMap": true,
-      "outDir": "build",
-      "baseUrl": ".",
-      "jsx": "react-jsx", 
-      
-      "esModuleInterop":true,
-      "paths": {
-        "*": ["node_modules/*"]
-      }
-    },
-    "include": [
-      "electron/**/*"
-    ]
-  }
+  "compilerOptions": {
+    "target": "es2020",  
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "outDir": "build",
+    "baseUrl": ".",
+    "jsx": "react-jsx", 
+    
+    "esModuleInterop":true,
+    "paths": {
+      "*": ["node_modules/*"]
+    }
+  },
+  "include": [
+    "electron/**/*"
+  ]
+}

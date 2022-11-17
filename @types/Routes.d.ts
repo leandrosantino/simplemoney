@@ -3,7 +3,10 @@ export type MainRoutes =
     'minimize' |
     'close' |
     'isMaximized' |
-    'auth'
+    'auth' |
+    'isAuthenticate' |
+    'getUserData' |
+    'signOut'
 
 export type RenderRoutes = 
     'update' |

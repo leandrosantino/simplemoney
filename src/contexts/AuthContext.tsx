@@ -1,4 +1,4 @@
-import { createContext , ReactNode, useState} from "react";
+import { createContext , ReactNode, useEffect, useState} from "react";
 
 interface UserPorps {
     name: string;
@@ -26,13 +26,23 @@ export function AuthContextProvider({ children }: AuthProviderProps){
 
     async function signIn(){
         console.log('teste')
-        setUser({avatarUrl:'lll', name: 'Leandro'})
-        console.log(window.ipc.sendSync('auth'))
+        const user = window.ipc.sendSync('auth') as UserPorps
+        if(user){   
+            setUser(user)
+        }
     }
 
     async function signOut(){
+        window.ipc.sendSync('signOut')
         setUser({avatarUrl:'', name: ''})
     }
+
+    useEffect(()=>{
+        const user = window.ipc.sendSync('isAuthenticate')
+        if(user){
+            setUser(user)
+        }
+    }, [])
 
     async function signInWithGoogle(access_token:String){
 

@@ -1,19 +1,27 @@
 import axios from "axios"
 import { BrowserWindow } from "electron"
 import OAuth2Provider from "electron-oauth-helper/dist/oauth2"
-import * as config from '../authConfig.json'
 
-export async function authProvider(){
-    const window = new BrowserWindow({
-        width: 600,
-        height: 800,
-        webPreferences: {
-            nodeIntegration: false, // We recommend disabling nodeIntegration for security.
-            contextIsolation: true // We recommend enabling contextIsolation for security.
-            // see https://github.com/electron/electron/blob/master/docs/tutorial/security.md
-        },
-    })
-    try {
+export function authProvider(mainWindow: BrowserWindow){
+    return new Promise<{access_token:string}>((resolve, reject) => {
+        const window = new BrowserWindow({
+            width: 600,
+            height: 800,
+            modal: true,
+            minimizable: false,
+            maximizable: false,
+            parent: mainWindow,
+            titleBarStyle: 'hidden',
+            titleBarOverlay: {
+                color: 'rgb(211, 211, 211)',
+                symbolColor: '#2f3241',
+            },
+            webPreferences: {
+                nodeIntegration: false, 
+                contextIsolation: true 
+            },
+        })
+
         
         const provider = new OAuth2Provider({
             client_id: "3389404517-dih0mp4fjicnc12m8ldjovhrio7ll10f.apps.googleusercontent.com",
@@ -22,37 +30,27 @@ export async function authProvider(){
             access_token_url: "https://oauth2.googleapis.com/token",
             redirect_uri: "http://localhost:9999/",
             response_type: "token",
-            scope: "https://www.googleapis.com/auth/userinfo.profile"
+            scope: "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email"
         })
-        // Your can use custom parameter.
-        provider.on("before-authorize-request", parameter => {
-            parameter["XXXX-Hoge"] = "hogehoge" 
+
+        window.on('close', ()=>{
+            reject(false)
         })
         
-        provider.on("before-access-token-request", (parameter, headers) => {
-            parameter["XXXX-Hoge"] = "hogehoge"
-            headers["Huga"] = "hugahgua"
-        })
-    
-        const resp = await provider.perform(window)
-        const token = resp.toString().split('=')[1].split('&')[0]
-        console.log(token)
-
-        const userResponse = {data: 'tetse'}//await axios.get('http://localhost:9999/?')
-
-        console.log('axios respo', userResponse.data)
-
-        window.close()
-
-        return {token, data: userResponse.data}
-    
-    } catch (error) {
-
-        if(String(error).search('Failed to load URL') == -1){   
-            console.log('error teste electron', String(error))
-            window.close()
-            return error
-        }
-        return 'erro'
-    }  
+        provider.perform(window)
+            .then(resp=>{
+                const access_token = resp.toString().split('=')[1].split('&')[0]
+                resolve({access_token})
+                window.close()
+            })
+            .catch(error=>{
+                if(String(error).search('Failed to load URL') == -1){   
+                    console.log('error teste electron', String(error))
+                    window.close()
+                    reject(error)
+                }
+                reject(false)
+            }) 
+    })
+     
 }

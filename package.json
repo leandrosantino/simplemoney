@@ -11,7 +11,7 @@
   "scripts": {
     "react": "react-scripts start",
     "react:build": "react-scripts build",
-    "electron:tsBuild": "tsc --resolveJsonModule -p ./electron.tsconfig.json",
+    "electron:tsBuild": "tsc  -p ./electron.tsconfig.json",
     "electron:tsWath": "tsc -w -p ./electron.tsconfig.json",
     "start": "cls && npm run electron:tsBuild && cls && electron . && cls",
     "dist": "npm run react:build && npm run electron:tsBuild && electron-builder -w -c.extraMetadata.main=build/main.js",
@@ -50,6 +50,7 @@
     "axios": "^1.1.3",
     "electron-is-dev": "^2.0.0",
     "electron-oauth-helper": "^5.1.1",
+    "electron-store": "^8.1.0",
     "google-auth-library": "^8.7.0",
     "re-resizable": "^6.9.9",
     "react": "^18.2.0",
